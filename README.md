@@ -1,6 +1,6 @@
 #  Bookstore API Automation Framework
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/your-username/your-repo-name/test.yml?branch=main)](https://github.com/your-username/your-repo-name/actions)
+[![GitHub Workflow Status](https://github.com/MarkoDev-Apps/Avenga_Task/actions/workflows/ci.yml/badge.svg)](https://github.com/MarkoDev-Apps/Avenga_Task/actions/workflows/ci.yml)
 [![Docker Image](https://img.shields.io/badge/docker--ready-blue)](https://hub.docker.com/r/markosdet/api-tests)
 
 
