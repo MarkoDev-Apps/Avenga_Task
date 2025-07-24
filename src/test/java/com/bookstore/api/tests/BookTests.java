@@ -18,8 +18,8 @@ import static org.hamcrest.Matchers.*;
 @Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public class BookTests extends TestBase {
 
-    @Test(description = "Get all books")
-    @Story("Get Books")
+    @Test(description = "Retrieve a list of all books.")
+    @Story("Retrieve Books")
     @Severity(SeverityLevel.NORMAL)
     public void testGetAllBooks() {
         RestAssured.given()
@@ -28,8 +28,8 @@ public class BookTests extends TestBase {
                 .body("size()", greaterThan(0));
     }
 
-    @Test(description = "Create a new book")
-    @Story("Create Book")
+    @Test(description = "Add a new book to the system.")
+    @Story("Add New Book")
     @Severity(SeverityLevel.CRITICAL)
     public void testCreateBook() {
         RestAssured.given()
@@ -40,8 +40,8 @@ public class BookTests extends TestBase {
                 .body("title", equalTo("Test Book"));
     }
 
-    @Test(description = "Get a book using invalid ID")
-    @Story("Get Book - Negative Case")
+    @Test(description = "Retrieve details of a specific book by its ID.")
+    @Story("Retrieve Book by its ID")
     @Severity(SeverityLevel.MINOR)
     public void testGetInvalidBook() {
         RestAssured.given()
@@ -49,7 +49,7 @@ public class BookTests extends TestBase {
                 .then().statusCode(404);
     }
 
-    @Test(description = "Update an existing book")
+    @Test(description = "Update an existing book by its ID.")
     @Story("Update Book")
     @Severity(SeverityLevel.CRITICAL)
     public void testUpdateBook() {
@@ -64,7 +64,7 @@ public class BookTests extends TestBase {
                 .body("title", equalTo("Updated Title"));
     }
 
-    @Test(description = "Delete an existing book")
+    @Test(description = "Delete a book by its ID.")
     @Story("Delete Book")
     @Severity(SeverityLevel.CRITICAL)
     public void testDeleteBook() {

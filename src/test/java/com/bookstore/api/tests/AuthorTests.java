@@ -17,16 +17,16 @@ import static org.hamcrest.Matchers.*;
 @Feature("CRUD Operations on Authors")
 public class AuthorTests extends TestBase {
 
-    @Test(description = "Get all authors")
-    @Story("Get Authors")
+    @Test(description = "Retrieve a list of all authors.")
+    @Story("Retrieve Authors")
     public void testGetAllAuthors() {
         RestAssured.given()
                 .when().get("/api/v1/Authors")
                 .then().statusCode(200).body("size()", greaterThan(0));
     }
 
-    @Test(description = "Create a new author")
-    @Story("Create Author")
+    @Test(description = "Add a new author to the system.")
+    @Story("Add New Author")
     public void testCreateAuthor() {
         RestAssured.given()
                 .contentType(ContentType.JSON)
@@ -35,16 +35,16 @@ public class AuthorTests extends TestBase {
                 .then().statusCode(200).body("firstName", equalTo("John"));
     }
 
-    @Test(description = "Get author with invalid ID")
-    @Story("Get Author - Negative")
+    @Test(description = "Retrieve details of a specific author by their ID.")
+    @Story("Get Author by ID")
     public void testGetInvalidAuthor() {
         RestAssured.given()
                 .when().get("/api/v1/Authors/99999")
                 .then().statusCode(404);
     }
 
-    @Test(description = "Update existing author")
-    @Story("Update Author")
+    @Test(description = "Update an existing author’s details.")
+    @Story("Update Author Details")
     public void testUpdateAuthor() {
         JSONObject payload = AuthorPayloads.createValidAuthor();
         payload.put("firstName", "Jane");
@@ -56,8 +56,8 @@ public class AuthorTests extends TestBase {
                 .then().statusCode(200).body("firstName", equalTo("Jane"));
     }
 
-    @Test(description = "Delete author")
-    @Story("Delete Author")
+    @Test(description = "Delete an author by their ID.")
+    @Story("Delete Author by ID")
     public void testDeleteAuthor() {
         RestAssured.given()
                 .when().delete("/api/v1/Authors/500")
